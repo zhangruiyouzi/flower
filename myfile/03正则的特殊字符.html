@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<input id="txt" type="y=text"><span></span>
+</body>
+</html>
+<script type="text/javascript">
+window.onload=function(){
+		// ^ 匹配一行的开头，/^a/匹配"abc"，而不匹配“bca“
+  	 	// var r = /^study/ig;
+  	 	
+		// $ 	匹配一行的结尾，/a$/匹配“bca"，而不匹配"abc" 
+		// var r = /study$/ig;
+
+  	 	// var r = /^study$/;//只能是study
+
+  	 	// . 匹配单个字符，除了换行和行结束符，等价于[^\n] 
+  	 	
+  	 	// var r = /^s.udy$/;
+  	 	// var r = /^s..udy$/;
+
+  	 	// * 匹配前面元字符0次或多次，/ba*/将匹配b,ba,baa,baaa 		
+		// var r = /^st*udy$/;
+
+		// +匹配前面元字符1次或多次，/ba+/将匹配ba,baa,baaa 
+		//var r = /^st+udy$/;
+
+		// ? 	匹配前面元字符0次或1次，/ba?/将匹配b,ba 
+		// var r = /^st?udy$/;
+		// (x|y) 	匹配x或y ,/a|b/ 将匹配只要出现a或者b的字符串，不含a与b的不匹配
+		// {n} 	精确匹配n次 ，/d{4}/  将匹配，出现连续4个d的字符串
+		// var r = /^s(t|a){3}udy$/;
+		// {n,} 	匹配n次以上 d{4,}/将匹配，出现连续4个及其以上多个d的字符串
+		
+		// {n,m} 	匹配n-m次，/d{4,6}/将匹配，出现连续4到6个d的字符串
+
+		// [xyz] 	匹配这个集合中的任一一个字符，如：[a-z] 表示小写a到小写z范围的字符。
+		// var r = /^s[0-9a-z]{2,}udy$/;
+
+		// [^xyz] 不匹配这个集合的任何一个字符 ，同样可以写范围，如：[^a-z]
+
+		// (red|blue|green)  将一些正则匹配规则合成一个小组。
+
+		// \d 	匹配一个数字字符，/\d/ 等价于 /[0-9]/ 
+		// var r = /^s\d{2}udy$/;// 
+		// \D 	匹配一个非数字字符，/\D/ 等价于 /[^0-9]/ 
+		// var r = /^s\D{2}udy$/;
+		// \w 	匹配一个可以组成单词(变量)的字符(包括字母，数字，下划线)等价于
+		//[a-zA-Z0-9_]
+		// var r = /^s\wudy$/;
+
+		// \W 	匹配一个不可以组成单词的字符 等价于 [^a-zA-Z0-9_]
+
+		// \b 	匹配一个单词的边界 (单词是以空格分割的)
+		// \B 	匹配一个单词的非边界 
+
+		// var r = /\ba/; //字符串中某个单词是以a开头，就对了
+		// var r = /a\b/; //字符串中某个单词是以a结尾，就对了
+
+		// var r = /\Ba///字符串中某个单词中间有a，就对了
+
+		// ?=c       	匹配任何其后紧接指定字符串 c 的字符串。 
+
+		// var r = /old(?= are)/;//how old are  you ,找old的，old后面跟着空格are 。
+		var r = /old(?! are)/;//how old are  you ,找old的，old后面跟着空格are 。
+
+
+
+
+
+		if (r.test(this.value)) {
+			$("span")[0].innerHTML = "√";
+		}else{
+			$("span")[0].innerHTML = "×";
+		}
+	}
+
+
+
+
+
+}
+
+
+function $(str){
+	if (str.charAt(0)=="#") {
+		return document.getElementById(str.substring(1));
+	}else if (str.charAt(1)==".") {
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+</script>

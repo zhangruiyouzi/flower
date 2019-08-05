@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则实现注册表单的验证</title>
+	<style type="text/css">
+		body{
+			background-color: skyblue;
+		}
+		
+		#box1{
+			width: 700px;
+			height: 600px;
+			background-color: #fff;
+			margin:20px auto;
+		}
+		#titleBox{
+			width: 280px;
+			height: 30px;
+			margin-left: 50px;
+			background-color: pink;
+			visibility: hidden;
+		}
+		#inputBox{
+			
+		}
+		#yanzhenId{
+			display: inline-block;
+			width:80px;
+			height: 30px;
+			/*background-color:pink;*/
+			border:1px solid black;
+		}
+		#yanzhenId img{
+			width: 20px;
+			height: 30px;
+		}
+		input{/*
+			color: #ccc;*/
+			margin-bottom: 30px;
+			height: 25px;
+		}
+		p{
+			display: inline;
+		}
+		#btn{
+			display: block;
+			width: 200px;
+			height: 30px;
+			background-color: #cd2626;
+			border:none;
+			border-radius:10px;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="box1">
+		<div id="titleBox">
+			
+		</div>
+		<div id="inputBox">
+			用户名   <input id="nameId" type="text" placeholder="请输入用户名">*必填，6-16位数字、字母组合,且以字母开头<br/>
+			设置密码 <input id="passId" type="text" placeholder="请输入密码">*必填，长度为6-16个字母、数字组合，不能为纯数字<br/>
+			确认密码 <input id="passIds" type="text" placeholder="请输入确认密码"><br/>
+			姓    名	<input id="chineseName" type="text" placeholder="请输入真实姓名"><br/>
+			身份证号 <input id="cardId" type="text" placeholder="请输入身份证号"><br/>
+			手机号码 <input id="phoneId" type="text" placeholder="请输入真实手机号"><br/>
+			验证码  	<input id="yanZhId" type="text" placeholder="请输入右图数字验证码"><span id="yanzhenId">
+				<!-- <img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg"> -->
+			</span><br/>
+					<input type="checkbox"><p>我同意并接受<span>《用户注册协议》</span></p>
+					<input id="btn" type="submit" value="注册">
+		</div>
+	</div>
+
+</body>
+</html>
+<script type="text/javascript" src="js/regTools.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	// $("#nameId").onfocus=function(){
+	// 	this.placeholder = "";
+	// }
+
+	// var inputDoms = $("input");
+	// for(var i=0;i<inputDoms-1;i++){
+	// 	inputDoms[i].onfocus = function(){
+	// 		this.style.placeholder = "";
+	// 	}
+	// }
+
+
+	
+	$("#nameId").onblur=function(){
+		//判断用户名
+		var r = $("#nameId").value;
+		var name = check(r,"name");
+		$("#titleBox").style.visibility = "visible";
+		if (name == false) {
+			$("#titleBox").innerHTML = "老头，请输入正确的用户名！";
+		}else{
+			$("#titleBox").innerHTML = "输入正确！";
+		}
+		
+	}
+	$("#passId").onblur=function(){
+			//判断密码
+		var m = $("#passId").value;
+		$("#titleBox").style.visibility = "visible";
+		var pass = check(m,"pass");
+		if (pass == false) {
+			$("#titleBox").innerHTML = "老头，请输入安全一点的密码！";
+		}else{
+			$("#titleBox").innerHTML = "输入正确！";
+		}
+			
+	}
+
+	$("#passIds").onblur=function(){
+			//确认密码
+		var ms = $("#passIds").value;
+		$("#titleBox").style.visibility = "visible";
+		if (ms != m) {
+			$("#titleBox").innerHTML = "老头，请输入安全一点的密码！";
+		}else{
+			$("#titleBox").innerHTML = "输入正确！";
+		}
+	}
+
+	$("#chineseName").onblur=function(){
+			//确认姓名
+		var cn = $("#chineseName").value;
+		var chineseName = check(cn,"chineseName");
+		$("#titleBox").style.visibility = "visible";
+		if (chineseName == false) {
+			$("#titleBox").innerHTML = "老头，请输入你的名字！";
+		}else{
+			$("#titleBox").innerHTML = "输入正确！";
+		}
+	}
+
+	$("#cardId").onblur=function(){
+			//确认身份证号码
+		var card = $("#cardId").value;
+		var cardId = check(card,"cardId");
+		$("#titleBox").style.visibility = "visible";
+		if (cardId == false) {
+			$("#titleBox").innerHTML = "老头，请输入正宗的身份证号码！";
+		}else{
+			$("#titleBox").innerHTML = "输入正确！";
+		}
+	}
+	$("#phoneId").onblur=function(){
+			//确认身份证号码
+		var phone = $("#phoneId").value;
+		var phoneId = check(phone,"phone");
+		$("#titleBox").style.visibility = "visible";
+		if (phoneId == false) {
+			$("#titleBox").innerHTML = "老头，请输入正宗的手机号码！";
+		}else{
+			$("#titleBox").innerHTML = "输入正确！";
+		}
+	}
+
+
+
+	// 调用验证码函数
+	yanzhengma();
+	var arr1 = yanzhengma(); 
+	var str1 = arr1.toString();  
+	
+
+	$("#yanzhenId").onclick=function(){
+		yanzhengma();
+		var str2 = yanzhengma();
+		str1 = str2;
+	}
+	
+
+
+	
+
+	$("#yanZhId").onblur=function(){
+		var yanzhenma = $("#yanZhId").value;
+		yanzhenma = yanzhenma.split("");
+		$("#titleBox").style.visibility = "visible";
+		if (yanzhenma != str1) {
+			$("#titleBox").innerHTML = "老头，请输入正宗的验证码！";
+		}else{
+	 		$("#titleBox").innerHTML = "验证码输入正确！";	
+		}
+	}
+	
+	// 验证码函数
+	function yanzhengma(){
+		var yanChild = $("#yanzhenId").children;
+		if (yanChild.length == 4) {
+			$("#yanzhenId").innerHTML = "";
+		}
+		var arr = [];
+		for(var i=0;i<4;i++){
+			var num = parseInt(Math.random()*10);
+			arr.push(num);
+			var imgDom = document.createElement("img");
+			imgDom.src = "img/"+num+".jpg";
+			$("#yanzhenId").appendChild(imgDom);
+			
+		}
+		return arr;
+	}
+	
+	
+
+
+	
+	
+
+
+
+
+
+}
+
+
+function $(str){
+	if (str.charAt(0)=="#") {
+		return document.getElementById(str.substring(1));
+	}else if (str.charAt(0)==".") {
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+</script>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册</title>
+			<link rel="stylesheet" type="text/css" href="css/login.css" />
+			<link rel="stylesheet" href="css/iconfont.css">
+			
+	</head>
+	<body>
+		<!-- 停单提示 topbar -->
+	<div class="sit-nav">
+		<div class="container">
+			<ul class="site-nav-l">
+				<li class="menu">
+					<a href="#"><span class="ico ico-star"></span>
+						收藏鲜花网(hua.com)</a>
+				</li>
+				<li class="menu dropdown open">
+					<a href="#"><span class="ico ico-weixin"></span>
+						关注微信</a>
+					<!-- 隐藏部分 -->
+					<div class="dropdown-menu dropdown-weixin">
+						<img src="img/wechat_qrcode.jpg" height="124" width="124">
+						<p>扫码关注</p>
+						<p>回复"礼物" 更多惊喜！</p>
+					</div>
+				</li>
+				<li class="menu dropdown">
+					<a href="#"><span class="ico ico-mobile"></span>
+						花礼网app</a>
+						<div class="dropdown-menu dropdown-app">
+							<img src="img/wechat_qrcode.jpg" height="124" width="124">
+							<p>扫码关注</p>
+							<p>回复"礼物" 更多惊喜！</p>
+						</div>
+				</li>
+			</ul>
+			<ul class="site-nav-r">
+				<!-- 登录状态显示start -->
+				<li class="menu login">
+					<a href="register.html">你好，请登录</a>
+					<a href="login.html">注册</a>
+				</li>
+				<!-- 登录状态显示end -->
+				<li class="site-nav-pipe">|</li>
+				<li class="menu">
+					<a href="#">订单查询</a>
+				</li>
+				<li class="site-nav-pipe">|</li>
+				<li class="menu dropdown">
+					<a href="#">我的花礼</a>
+				</li>
+				<li class="site-nav-pipe">|</li>
+				<li class="menu dropdown topservise">
+					<a id="triangle" href="#">客户服务
+						<span class="sanjiao glyphicon-triangle-bottom"></span>
+					</a>
+					<!-- 客户服务滑过隐藏模块 -->
+					  <div class="dropdown-menu dropdown-service">
+					    <a href="/member/payment/balancefill" target="_blank">在线付款</a>
+					    <a href="/help/" target="_blank">帮助中心</a>
+					    <a href="/help/afterservice.htm" target="_blank">售后服务</a>
+					    <a href="/help/sendRange.htm" target="_blank">配送范围</a>
+					    <a href="/chat/" target="_blank">留言反馈</a>
+					</div>
+				</li>
+				<li class="site-nav-pipe">|</li>
+				<li class="menu dropdown cart">
+					<a id="triangle" href="#">
+						<span class="ico ico-cart"></span>购物车
+						<span class="text-primary" id="gwcCount">(0)</span>
+						<span class="sanjiao glyphicon-triangle-bottom"></span>
+					</a>
+					   <div class="dropdown-menu dropdown-cart" id="CartInfo">
+						   <p class="empty">您的购物车中没有商品，先去选购吧！</p>
+					   </div>
+				</li>
+				<li class="site-nav-pipe">|</li>
+				<li class="menu slogan">中国鲜花礼品网:中国鲜花网领先品牌</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 停单提示结束 -->
+	
+		<!-- 头部开始 -->
+		<header>
+			<!-- logo -->
+			<div class="logo">
+				<h1>
+					<a href="#" class="logo-bd">中国鲜花礼品网(花礼网)</a>
+				</h1>
+			</div>
+			<!-- 搜索框 -->
+			<div class="search">
+				<form action="">
+					<div class="input-group">
+						<input type="text" name="keyword" class="form-control" placeholder="商品关键词">
+						<span class="input-group-btn">
+							<button id="test" class="btn btn-primary" type="button">搜索</button>
+						</span>
+					</div>
+				</form>
+			</div>
+			<!-- 电话联系 -->
+			<div id="service">
+				<span class="ico ico-phone"></span>400-889-8188
+				<a href="#" id="header-chat" target="_blank">
+					<span class="ico ico-headset"></span>在线客服
+				</a>
+			</div>
+		</header>
+		<!-- 头部结束 -->
+		<section class="login-wrapper">
+			<div class="centers">
+				<div class="login-box">
+					<!-- 手机注册开始 -->
+				<div id="register-phone" class="login-form register-form register-form-tel">
+					<p>手机注册</p>
+					<div class="input-box account-box">
+						<span class="iconfont icontell"></span>
+						<input id="telphone" class="account" type="text" placeholder="请输入手机">
+					</div>
+						<div class="input-box codebox">
+							<span  class="iconfont iconyzm"></span>
+							<input type="text" class="account" placeholder="请输入短信验证码">
+							<span class="getyzm">获取验证码</span>
+						</div>
+						<div class="input-box pwdbox">
+							<span  class="iconfont iconpwd"></span>
+							<input id="pwd"type="password" class="account" placeholder="请输入密码">
+						</div>
+						<h3 id="warning-text"></h3>	
+					<input class="input-box loginred" type="button" value="注册" onClick="phoneRegister();">
+					</div>
+					<!-- 手机注册结束 -->
+					<!-- 邮箱注册开始 -->
+					<div id="register-email" class="login-form register-form register-form-email">
+						<p>邮箱注册</p>
+						<div class="input-box account-box">
+							<span class="iconfont icontell"></span>
+							<input class="account" type="text" placeholder="请输入邮箱">
+						</div>
+							<div class="input-box codebox">
+								<!-- <span  class="iconfont iconyzm"></span> -->
+								<input id="message" type="text" class="account" placeholder="请输入验证码">
+								<span class="getyzm"><a href="javascript:RefreshImage('imgCaptcha2');"><img id="imgCaptcha2" src="/Passport/Login/BaseImageValidCode"></a></span>
+							</div>
+							<div class="input-box">
+								<span  class="iconfont iconpwd"></span>
+								<input type="text" class="account" placeholder="请输入密码">
+						</div>
+						<input class="input-box loginred" type="button" value="注册"  onClick="emailRegister();">
+						
+						</div>
+						<!-- 邮箱注册结束 -->
+						<div id="footbox" class="foot_email">
+							<p id="bottom-left-mail" class="emailbox ">邮箱注册></p>
+							<a href="register.html" class="textlogin">已有账号，去登录></a>
+						</div>
+						<div id="footbox" class="foot_tel">
+							<p id="bottom-left-tel" class="emailbox ">手机注册></p>
+							<a href="register.html" class="textlogin">已有账号，去登录></a>
+						</div>
+				</div>
+			</div>
+		</section>
+		<!-- foot导航 -->
+		<div class="footer-nav">
+			<a href="#">首页</a>
+			<b>|</b>
+			<a href="#">关于我们</a>
+			<b>|</b>
+			<a href="#">媒体报道</a>
+			<b>|</b>
+			<a href="#">联系方式</a>
+			<b>|</b>
+			<a href="#">企业团购</a>
+			<b>|</b>
+			<a href="#">花店入驻</a>
+			<b>|</b>
+			<a href="#">友情链接</a>
+			<b>|</b>
+			<a href="#">在线补款</a>
+			<b>|</b>
+			<a href="#">为什么选择中国鲜花礼品网</a>
+		</div>
+		<!-- foot帮助 -->
+		
+		<!-- 整体页面的尾部 -->
+		<footer>
+			<div class="auth">
+				<a href="#"><img src="img/cxwz.png" style="height: 40px;" ></a>
+				<a href="#"><img src="img/cxwz.gif" ></a>
+				<a href="#"><img src="img/smyz.gif" ></a>
+				<a href="#"><img src="img/slogan.png" ></a>
+				<a href="#"><img src="img/zfb.gif" ></a>
+				<a href="#"><img src="img/100.jpg" ></a>
+				<a href="#"><img src="img/bico1.jpg" ></a>
+				<a href="#"><img src="img/bico4.jpg" ></a>
+				<a href="#"><img src="img/bico3.jpg" ></a>
+			</div>
+			<p>
+				<a href="#">中国花卉协会会员</a>
+				<a href="#">中国电子商务协会会员</a>
+				 ICP经营许可证：
+				 <a href="#">粤B2-20050744</a>
+				 <b>|</b>
+				 <a href="#">粤ICP备09171662号</a>
+				 <span class="ico beian"></span>
+				 粤公网安备44030502000373号 Copyright © 2005-2019
+			</p>
+			<p>
+				花礼网 （中国鲜花礼品网） 
+				<a href="#">www.hua.com</a>
+				<san> 深圳市百易信息技术有限公司</san>
+				 中国鲜花网领先品牌，鲜花速递专家！
+			</p>
+		</footer>
+			<!-- 咨询客服 -->
+		<!-- 咨询客服 -->
+		<div class="kefu">	
+			<img src="img/kefu.png" class="kefuimg">
+			<span>咨询客服</span>
+		</div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	// 表单切换
+	var phoneForm = $("#register-phone");
+	var mailForm = $("#register-email");
+	$("#bottom-left-mail").click(function(){
+		$(".foot_tel").show();
+		mailForm.show();
+		phoneForm.hide();
+	});
+	$("#bottom-left-tel").click(function(){
+		$(".foot_tel").hide();
+		phoneForm.show();
+		mailForm.hide();
+	});
+	
+// 手机号验证
+var oTel=document.getElementById("telphone");
+var	oWarning = document.getElementById("warning-text");
+var oPwd = document.getElementById("pwd");
+var oMessage = document.getElementById("message");
+var flagTel=null;
+var flagqpwd=null;
+var flagMes =null;
+oTel.onblur = function(){
+ 	var regTel = /^(15|13|18)\d{9}$/;
+ 	var str = this.value;
+	if(regTel.test(str)){
+ 		flagTel = true;
+ 		oWarning.innerHTML = "";
+ 	}else{
+ 		flagTel = false;
+ 		oWarning.innerHTML = "很抱歉，请输入有效的手机号";
+ 	}
+ }	
+oMessage.onblur = function(){
+ 	var regMes = /^\d{4}$/;
+ 	var str = this.value;
+	if(oTel.value==""){
+		oWarning.innerHTML = "手机号不能为空";
+	}else{
+		if(regMes.test(str)){
+			flagMes = true;
+			oWarning.innerHTML = "";
+		}else{
+			flagMes = false;
+			oWarning.innerHTML = "短信验证码有误";
+		}
+	}
+	
+	
+ }	
+ var times = 10;
+ function roof(){
+     if(times == 0){
+         $('.getyzm').text('获取验证码('+times+'s)');
+         $('.getyzm').prop('disabled',false);
+         $('.getyzm').text('获取验证码');
+         times = 10;
+         return
+     }
+     $('.getyzm').text(times+'s'+'后重新发送');
+     times--;
+ 
+     setTimeout(roof,1000);
+ }
+ $('.getyzm').on('click',function(){
+     
+     $(this).prop('disabled',true);
+     roof();
+ 
+ });
+ // 密码验证
+oPwd.onblur = function(){
+ 	var regPwd = /^\w{6,18}$/;
+ 	var str = this.value;
+	if(regPwd.test(str)){
+ 		flagqpwd = true;
+ 		oWarning.innerHTML = "";
+ 	}else{
+ 		flagqpwd = false;
+ 		oWarning.innerHTML = "输入的密码不少于6位";
+ 	}
+ }		
+/* function $$(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}		 */
+</script>

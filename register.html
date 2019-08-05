@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+			<link rel="stylesheet" type="text/css" href="css/register.css" />
+			<link rel="stylesheet" href="css/iconfont.css">
+	</head>
+	<body>
+	<!-- 停单提示 topbar -->
+	<div class="sit-nav">
+		<div class="container">
+			<ul class="site-nav-l">
+				<li class="menu">
+					<a href="#"><span class="ico ico-star"></span>
+						收藏鲜花网(hua.com)</a>
+				</li>
+				<li class="menu dropdown open">
+					<a href="#"><span class="ico ico-weixin"></span>
+						关注微信</a>
+					<!-- 隐藏部分 -->
+					<div class="dropdown-menu dropdown-weixin">
+						<img src="img/wechat_qrcode.jpg" height="124" width="124">
+						<p>扫码关注</p>
+						<p>回复"礼物" 更多惊喜！</p>
+					</div>
+				</li>
+				<li class="menu dropdown">
+					<a href="#"><span class="ico ico-mobile"></span>
+						花礼网app</a>
+						<div class="dropdown-menu dropdown-app">
+							<img src="img/wechat_qrcode.jpg" height="124" width="124">
+							<p>扫码关注</p>
+							<p>回复"礼物" 更多惊喜！</p>
+						</div>
+				</li>
+			</ul>
+			<ul class="site-nav-r">
+				<!-- 登录状态显示start -->
+				<li class="menu login">
+					<a href="register.html">你好，请登录</a>
+					<a href="login.html">注册</a>
+				</li>
+				<!-- 登录状态显示end -->
+				<li class="site-nav-pipe">|</li>
+				<li class="menu">
+					<a href="#">订单查询</a>
+				</li>
+				<li class="site-nav-pipe">|</li>
+				<li class="menu dropdown">
+					<a href="#">我的花礼</a>
+				</li>
+				<li class="site-nav-pipe">|</li>
+				<li class="menu dropdown topservise">
+					<a id="triangle" href="#">客户服务
+						<span class="sanjiao glyphicon-triangle-bottom"></span>
+					</a>
+					<!-- 客户服务滑过隐藏模块 -->
+					  <div class="dropdown-menu dropdown-service">
+					    <a href="/member/payment/balancefill" target="_blank">在线付款</a>
+					    <a href="/help/" target="_blank">帮助中心</a>
+					    <a href="/help/afterservice.htm" target="_blank">售后服务</a>
+					    <a href="/help/sendRange.htm" target="_blank">配送范围</a>
+					    <a href="/chat/" target="_blank">留言反馈</a>
+					</div>
+				</li>
+				<li class="site-nav-pipe">|</li>
+				<li class="menu dropdown cart">
+					<a id="triangle" href="#">
+						<span class="ico ico-cart"></span>购物车
+						<span class="text-primary" id="gwcCount">(0)</span>
+						<span class="sanjiao glyphicon-triangle-bottom"></span>
+					</a>
+					   <div class="dropdown-menu dropdown-cart" id="CartInfo">
+						   <p class="empty">您的购物车中没有商品，先去选购吧！</p>
+					   </div>
+				</li>
+				<li class="site-nav-pipe">|</li>
+				<li class="menu slogan">中国鲜花礼品网:中国鲜花网领先品牌</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 停单提示结束 -->
+		
+		<!-- 头部开始 -->
+		<header>
+			<!-- logo -->
+			<div class="logo">
+				<h1>
+					<a href="#" class="logo-bd">中国鲜花礼品网(花礼网)</a>
+				</h1>
+			</div>
+			<!-- 搜索框 -->
+			<div class="search">
+				<form action="">
+					<div class="input-group">
+						<input type="text" name="keyword" class="form-control" placeholder="商品关键词">
+						<span class="input-group-btn">
+							<button id="test" class="btn btn-primary" type="button">搜索</button>
+						</span>
+					</div>
+				</form>
+			</div>
+			<!-- 电话联系 -->
+			<div id="service">
+				<span class="ico ico-phone"></span>400-889-8188
+				<a href="#" id="header-chat" target="_blank">
+					<span class="ico ico-headset"></span>在线客服
+				</a>
+			</div>
+		</header>
+		<!-- 头部结束 -->
+		<section class="login-wrapper">
+			<div class="centers">
+				<div class="login-box">
+					<ul class="login-tabs">
+						<li id="wx-login">
+							<a href="#" class="wetchat">微信扫码</a>
+						</li>
+						<li id="pw-login"><a class="paslogin"href="#">账号密码登录</a></li>
+						<li id="tel-login"><a class="calllogin" href="#">手机短信登录</a></li>
+					</ul>
+					
+					<!-- 微信登录 -->
+					<div class="weixin-regist">
+						<img src="img/tempqrpic%20.jpg" alt="">
+						<p class="wechattext">微信扫码，一秒登录</p>
+					</div>
+					<!-- 账号密码登录 -->
+					<div class="pass-regist">	
+					<div class="input-box account-box">
+						<span class="iconfont icontell"></span>
+						<input class="account" type="text" placeholder="请输入花礼账号(邮箱或手机)">
+					</div>
+					<div class="input-box">
+							<span  class="iconfont iconpwd"></span>
+							<input type="text" class="account" placeholder="请输入密码">
+					</div>
+					<p class="pwd-forget">忘记密码？</p>
+					<input class="input-box loginred" type="button" value="登录" onClick="phoneRegister();">
+					
+					</div>
+					<!-- 手机登录 -->
+					<div class="tel-regist">	
+					<div class="input-box account-box">
+						<span class="iconfont icontell"></span>
+						<input class="account" type="text" placeholder="请输入手机号">
+					</div>
+					<div class="input-box codebox">
+						<span  class="iconfont iconyzm"></span>
+						<input type="text" class="account" placeholder="请输入短信验证码">
+						<span class="getyzm">获取验证码</span>
+						
+					</div>
+					
+					<input class="input-box loginred" type="button" value="登录/注册" onClick="phoneRegister();">
+					<p class="form-tip">首次登录将自动创建账号</p>
+					</div>
+					<!-- 底部QQ和微信图标 -->
+					<div class="login-icon">
+						<div class="qqlogin">
+							<span class="icon-qq"></span>
+							<p class="qqtext">QQ</p>
+						</div>
+						<div class="zfblogin">
+							<span class="icon-zfb"></span>
+							<p class="zfbtext">支付宝</p>
+						</div>
+					</div>
+					<div id="footbox">
+						<a href="login.html" class="emailbox">一键快捷注册></a>
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<!-- foot导航 -->
+		<div class="footer-nav">
+			<a href="#">首页</a>
+			<b>|</b>
+			<a href="#">关于我们</a>
+			<b>|</b>
+			<a href="#">媒体报道</a>
+			<b>|</b>
+			<a href="#">联系方式</a>
+			<b>|</b>
+			<a href="#">企业团购</a>
+			<b>|</b>
+			<a href="#">花店入驻</a>
+			<b>|</b>
+			<a href="#">友情链接</a>
+			<b>|</b>
+			<a href="#">在线补款</a>
+			<b>|</b>
+			<a href="#">为什么选择中国鲜花礼品网</a>
+		</div>
+		<!-- foot帮助 -->
+		
+		<!-- 整体页面的尾部 -->
+		<footer>
+			<div class="auth">
+				<a href="#"><img src="img/cxwz.png" style="height: 40px;" ></a>
+				<a href="#"><img src="img/cxwz.gif" ></a>
+				<a href="#"><img src="img/smyz.gif" ></a>
+				<a href="#"><img src="img/slogan.png" ></a>
+				<a href="#"><img src="img/zfb.gif" ></a>
+				<a href="#"><img src="img/100.jpg" ></a>
+				<a href="#"><img src="img/bico1.jpg" ></a>
+				<a href="#"><img src="img/bico4.jpg" ></a>
+				<a href="#"><img src="img/bico3.jpg" ></a>
+			</div>
+			<p>
+				<a href="#">中国花卉协会会员</a>
+				<a href="#">中国电子商务协会会员</a>
+				 ICP经营许可证：
+				 <a href="#">粤B2-20050744</a>
+				 <b>|</b>
+				 <a href="#">粤ICP备09171662号</a>
+				 <span class="ico beian"></span>
+				 粤公网安备44030502000373号 Copyright © 2005-2019
+			</p>
+			<p>
+				花礼网 （中国鲜花礼品网） 
+				<a href="#">www.hua.com</a>
+				<san> 深圳市百易信息技术有限公司</san>
+				 中国鲜花网领先品牌，鲜花速递专家！
+			</p>
+		</footer>
+		<!-- 咨询客服 -->
+		<div class="kefu">	
+			<img src="img/kefu.png" class="kefuimg">
+			<span>咨询客服</span>
+		</div>
+	</body>
+</html>
+<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+		// 表单切换
+	// 点击微信登录时
+	$("#wx-login").click(function(){
+		$(".weixin-regist").show();
+		$(".pass-regist").hide();
+		$(".tel-regist").hide();
+		$(".wetchat").css({
+				"color":"#FF734C",
+				"border-bottom-color":"#FF734C",
+				"border-bottom-width":"4px",
+				"border-bottom-style":"solid",
+				"height":"52px",
+				"display": "inline-block"
+			})
+		$(".paslogin").css({
+						"color":"#FF734C",
+						"border":"none",
+						"color":" #737373"
+					})
+		$(".calllogin").css({
+					"color":"#FF734C",
+					"border":"none",
+					"color":" #737373"
+				})
+					
+	});
+	// 点击账号密码登录时
+	$("#pw-login").click(function(){
+		$(".weixin-regist").hide();
+		$(".pass-regist").show();
+		$(".tel-regist").hide();
+		$(".paslogin").css({
+				"color":"#FF734C",
+				"border-bottom-color":"#FF734C",
+				"border-bottom-width":"4px",
+				"border-bottom-style":"solid",
+				"height":"52px",
+				"display": "inline-block"
+			})
+		$(".wetchat").css({
+					"color":"#FF734C",
+					"border":"none",
+					"color":" #737373"
+				})
+		$(".calllogin").css({
+					"color":"#FF734C",
+					"border":"none",
+					"color":" #737373"
+				})
+	});
+	
+	// 点击手机登录时
+	$("#tel-login").click(function(){
+		$(".weixin-regist").hide();
+		$(".pass-regist").hide();
+		$(".tel-regist").show();
+		$(".calllogin").css({
+				"color":"#FF734C",
+				"border-bottom-color":"#FF734C",
+				"border-bottom-width":"4px",
+				"border-bottom-style":"solid",
+				"height":"52px",
+				"display": "inline-block"
+			})
+		$(".wetchat").css({
+					"color":"#FF734C",
+					"border":"none",
+					"color":" #737373"
+				})
+		$(".paslogin").css({
+							"color":"#FF734C",
+							"border":"none",
+							"color":" #737373"
+						})
+	});
+</script>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta charset="utf-8">
+		<title>商品详情页</title>
+		<meta name="description" content="鲜花网,选花礼网Hua.com(中国鲜花礼品网)-中国鲜花网领先品牌,专注鲜花速递服务14年,销量居鲜花礼品网站首位！鲜花网可24小时预订鲜花，同城送花、异地送花服务,网上订花后最快3小时即可将鲜花快递上门,送花网站覆盖中国2000+城市！">
+		<meta name="keywords" content="花礼网Hua.com,中国鲜花礼品网,鲜花,鲜花网,鲜花快递,网上订花送花,中国鲜花网,网上订花,送花网站">
+			
+		<link rel="stylesheet" href="css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="css/details.css" charset="UTF-8"/>
+	</head>
+	<body>
+		<!-- 停单提示 topbar -->
+		<div class="sit-nav">
+			<div class="container">
+				<ul class="site-nav-l">
+					<li class="menu">
+						<a href="#"><span class="ico ico-star"></span>
+							收藏蛋糕网(hua.com)</a>
+					</li>
+					<li class="menu dropdown open">
+						<a href="#"><span class="ico ico-weixin"></span>
+							关注微信</a>
+						<!-- 隐藏部分 -->
+						<div class="dropdown-menu dropdown-weixin">
+							<img src="img/wechat_qrcode.jpg" height="124" width="124">
+							<p>扫码关注</p>
+							<p>回复"礼物" 更多惊喜！</p>
+						</div>
+					</li>
+					<li class="menu dropdown">
+						<a href="#"><span class="ico ico-mobile"></span>
+							花礼网app</a>
+							<div class="dropdown-menu dropdown-app">
+								<img src="img/wechat_qrcode.jpg" height="124" width="124">
+								<p>扫码关注</p>
+								<p>回复"礼物" 更多惊喜！</p>
+							</div>
+					</li>
+				</ul>
+				<ul class="site-nav-r">
+					<!-- 登录状态显示start -->
+					<li class="menu login">
+						<a href="register.html">你好，请登录</a>
+						<a href="login.html">注册</a>
+					</li>
+					<!-- 登录状态显示end -->
+					<li class="site-nav-pipe">|</li>
+					<li class="menu">
+						<a href="#">订单查询</a>
+					</li>
+					<li class="site-nav-pipe">|</li>
+					<li class="menu dropdown">
+						<a href="#">我的花礼</a>
+					</li>
+					<li class="site-nav-pipe">|</li>
+					<li class="menu dropdown topservise">
+						<a id="triangle" href="#">客户服务
+							<span class="sanjiao glyphicon-triangle-bottom"></span>
+						</a>
+						<!-- 客户服务滑过隐藏模块 -->
+						  <div class="dropdown-menu dropdown-service">
+						    <a href="/member/payment/balancefill" target="_blank">在线付款</a>
+						    <a href="/help/" target="_blank">帮助中心</a>
+						    <a href="/help/afterservice.htm" target="_blank">售后服务</a>
+						    <a href="/help/sendRange.htm" target="_blank">配送范围</a>
+						    <a href="/chat/" target="_blank">留言反馈</a>
+						</div>
+					</li>
+					<li class="site-nav-pipe">|</li>
+					<li class="menu dropdown cart">
+						<a id="triangle" href="#">
+							<span class="ico ico-cart"></span>购物车
+							<span class="text-primary" id="gwcCount">(0)</span>
+							<span class="sanjiao glyphicon-triangle-bottom"></span>
+						</a>
+						   <div class="dropdown-menu dropdown-cart" id="CartInfo">
+							   <p class="empty">您的购物车中没有商品，先去选购吧！</p>
+						   </div>
+					</li>
+					<li class="site-nav-pipe">|</li>
+					<li class="menu slogan">中国鲜花礼品网:中国鲜花网领先品牌</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 停单提示结束 -->
+		
+		<!-- 头部开始 -->
+		<header>
+			<!-- logo -->
+			<div class="logo">
+				<h1>
+					<a href="#" class="logo-bd">中国鲜花礼品网(花礼网)</a>
+				</h1>
+			</div>
+			<!-- 搜索框 -->
+			<div class="search">
+				<form action="">
+					<div class="input-group">
+						<input type="text" name="keyword" class="form-control" placeholder="商品关键词">
+						<span class="input-group-btn">
+							<button id="test" class="btn btn-primary" type="button">搜索</button>
+						</span>
+					</div>
+				</form>
+				<span class="help-block">
+					<a href="#" class="text1">元祖蛋糕</a>|
+					<a href="#" class="text3">生日蛋糕</a>
+				</span>
+			</div>
+			<!-- 电话联系 -->
+			<div id="service">
+				<span class="ico ico-phone"></span>400-889-8188
+				<a href="#" id="header-chat" target="_blank">
+					<span class="ico ico-headset"></span>在线客服
+				</a>
+			</div>
+		</header>
+		<!-- 头部结束 -->
+			<!-- 导航开始 -->
+		<nav class="default">
+			<div class="container">
+				<div class="categorys">
+					<h3 class="categorys-title">
+						<a href="#">全部商品导购</a>
+					</h3>
+					<div id="daogou" class="dropdown-cate">
+							<a href="#"><h4>鲜花</h4></a>
+							<ul class="cate-list list-inline">
+								<li><a href="#">爱情鲜花</a></li>
+								<li><a href="#">生日鲜花</a></li>
+								<li><a href="#">友情鲜花</a></li>
+								<li><a href="#">问候长辈</a></li>
+								<li><a href="#">探病慰问</a></li>
+								<li><a href="#">道歉鲜花</a></li>
+								<li><a href="#">祝贺鲜花</a></li>
+								<li><a href="#">婚庆鲜花</a></li>
+								<li><a href="#">商务鲜花</a></li>
+							</ul>
+							<a href="#"><h4>永生花</h4></a>
+							<ul class="cate-list list-inline">
+								<li><a href="#">经典花盒</a></li>
+								<li><a href="#">巨型玫瑰</a></li>
+								<li><a href="#">薰衣草</a></li>
+								<li><a href="#">永生瓶花</a></li>
+								<li><a href="#">特色永生花</a></li>
+							</ul>
+							<a href="#"><h4>礼品</h4></a>
+							<ul class="cate-list list-inline">
+								<li><a href="#">泰国保鲜花</a></li>
+								<li><a href="#">音乐盒</a></li>
+								<li><a href="#">水晶内雕</a></li>
+								<li><a href="#">金箔花</a></li>
+								<li><a href="#">化妆镜</a></li>
+								<li><a href="#">香薰系列</a></li>
+								<li><a href="#">音乐睡枕</a></li>
+								<li><a href="#">花瓶/相框</a></li>
+								<li><a href="#">卡通花束</a></li>
+								<li><a href="#">品牌公仔</a></li>
+								<li><a href="#">首饰</a></li>
+								<li><a href="#">Giftstalk精选</a></li>
+								<li><a href="#">创意礼品</a></li>
+								<li><a href="#">礼品卡</a></li>
+								<li><a href="#">多肉植物盆栽</a></li>
+							</ul>
+							<a href="#"><h4>绿植</h4></a>
+							<ul class="cate-list list-inline">
+								<li><a href="#">绿色植物</a></li>
+								<li><a href="#">盆栽花卉</a></li>
+							</ul>
+						</div>
+				</div>
+				
+				
+				<ul class="listText">
+					<li><a href="#">首页</a></li>
+					<li><a href="#">鲜花</a></li>
+					<li><a href="#">永生花</a></li>
+					<li><a href="#">蛋糕</a></li>
+					<li><a href="#">礼品</a></li>
+					<li><a href="#">巧克力</a></li>
+					<li><a href="#">花语大全</a></li>
+					<li><a href="#">设计师甄选鲜花</a></li>
+					<li><a href="#">七夕情人节礼物</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- 导航结束 -->
+		<!-- 主体部分 -->
+		<div class="section">
+			<!-- 首页>米尔米卡蛋糕>小黄鸭蛋糕 -->
+			<div class="breadcrumbs">
+				<a href="index.html">首页</a>
+				>>
+				<a href="#">米尔米卡蛋糕</a>
+				>>
+				<i>小黄鸭嘎嘎（1.5磅）</i>		
+			</div>
+			<!-- 产品模块开始 -->
+			<div class="product-wrapper">
+				<!-- 左边图片部分 -->
+				<div class="product-l">
+					
+				</div>
+				<!-- 右边商品介绍 -->
+				<div class="product-r">
+					<!-- 题目 -->
+					<div class="title">
+						<h3>小黄鸭嘎嘎（1.5磅）--慕斯蛋糕</h3>
+					</div>
+					<!-- 商品属性 -->
+					<div class="attribute">
+						<dl>
+							<dt>类 别：</dt>
+							<dd>米卡米卡蛋糕 编 号：5702031</dd>
+						</dl>
+						<dl>
+							<dt>材 料：</dt>
+							<dd>鸭身：奶油 (新西兰)、芒果蓉(澳洲)、鸡蛋(中国) 鸭嘴：草莓果蓉（法国）</dd>
+						</dl>
+						<dl>
+							<dt>包 装：</dt>
+							<dd>一次性蛋糕用品1套</dd>
+						</dl>
+						<dl>
+							<dt>备 注：</dt>
+							<dd>来自澳大利亚的金色芒果，享受南纬33°温带阳光孕育， 汁甜如蜜,香味异常浓郁,肉质细滑鲜美,一口下去,满嘴都是芒果的香味。</dd>
+						</dl>
+						<dl>
+							<dt>附 送：</dt>
+							<dd>下单填写留言，即免费赠送精美贺卡！</dd>
+						</dl>
+						<dl>
+							<dt  style="line-height: 25px;">配 送至：</dt>
+							<dd class="choose">
+							<div class="stock-address">
+								<div class="head">
+									<span class="text">请选择</span>
+									<span class="arrow"></span>
+								</div>
+								<!-- 隐藏的地址列表 -->
+								<div class="hide-address">
+									<dl class="address-select">
+										<dt>
+											<b>选择地址</b>
+										</dt>
+										<dd class="address-list">
+	
+										</dd>
+									</dl>
+								</div>
+								</div>
+							</dd>
+							<!-- <dd class="arrow"></dd> -->
+						</dl>
+						<dl class="introduce">
+							<dt>说明：</dt>
+							<dd><span class="text-primary">请提前24小时预订；五环内15点前下单当天可配送；五环外11点前下单当天可配送</span></dd>
+						</dl>
+					</div>
+					<!-- 商品价格 -->
+					<div class="price-wrap">
+						尺寸:
+						<a href="#">
+							<div class="eighitsize">
+								<i></i>8寸
+							</div>
+						</a>
+					</div>
+					<!-- 原价和现价 -->
+					<div class="price-original">市场价：￥217</div>
+					<div class="price-sell">
+						花礼价
+						<b>￥217</b>
+					</div>
+					<!-- 添加购物车 -->
+					<div class="btn-buy">
+						<a href="#" class="shopbtn shopleft">加入购物车</a>
+						<a href="#" class="shopbtn shopright">立即购买</a>
+						<a href="#" class="btn-love"><span class="ico ico-heart"></span>收藏</a>
+					</div>
+				</div>
+			</div>
+			<!-- 产品模块结束 -->
+			
+			<!-- 产品下半部分:商品详情，用户评价，常见问题及购物保障 -->
+			<div class="wrapper">
+				<!-- 左边部分 -->
+				<div class="wrapper-left">
+					<!-- 浏览记录 -->
+					<div class="panel-info">
+						<div class="panel-heading">
+							<h3>浏览记录</h3>
+						</div>
+						<div class="panel-body">
+							<div class="side-item-s">
+								<span>暂无历史记录！</span>
+							</div>
+						</div>
+					</div>
+						<!-- 浏览记录 -->
+					<div class="panel-info">
+						<div class="panel-heading">
+							<h3>热销推荐</h3>
+						</div>
+						<div class="panel-body">
+							<div class="side-item-s">
+								<span>暂无历史记录！</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 右边部分 -->
+				<div class="wrapper-right">
+					
+				</div>
+				
+			</div>
+		</div>
+		
+	
+	
+	
+		
+		<!-- 侧边栏 -->
+			<div class="mui-mbar-tabs">
+				<div class="quick_links_panel">
+					<div class="quick_links" id="quick_links">
+						<!-- 用户信息 -->
+						<li class="userside">
+							<a href="#"><i class="ico_user"></i></a>
+							<!-- 用户侧边栏隐藏内容 -->
+							<div class="ibar_login_box">
+								<div class="avatar_box" id="loginStats">
+									<p class="avatar_imgbox">
+										<img src="img/avatar_none.jpg" alt="">
+									</p>
+									你好！请 
+									<a href="#">登录</a>|
+									<a href="#">注册</a>
+								</div>
+								<div class="login_btnbox">
+									<a href="#"><i class="ico_order"></i>我的订单</a>
+								</div>
+								<i class="icon_arrow_right_white"></i>
+							</div>
+						</li>
+						<!-- 购物车 -->
+						<li id="shopCart">
+							<a href="#" class="message_list">
+								<i class="ico_cart"></i>
+								<div class="shoptext">购物车</div>
+								<span class="cart_num" id="cart_num">0</span>
+							</a>
+						</li>
+						<!-- 心心收藏 -->
+						<li id="lovecollect">
+							<a href="#">
+								<i class="ico_collect"></i>
+							</a>
+							<div class="mp_tooltip collect">
+								<a href="#">我的收藏</a>
+								<i class="icon_arrow_right_white"></i>
+							</div>
+						</li>
+						<!-- 最近查看 -->
+						<li id="side_look">
+							<a href="#">
+								<i class="ico_histroy"></i>
+							</a>
+								<div class="mp_tooltip look">
+								<a href="#">最近查看</a>
+								<i class="icon_arrow_right_white"></i>
+							</div>
+						</li>
+						<!-- 电话联系 -->
+						<li id="side_phone">
+							<a href="#">
+								<i class="ico_phone"></i>
+							</a>
+							<div class="mp_tooltip phone">
+								<a href="#">400-889-8188</a>
+								<i class="icon_arrow_right_white"></i>
+							</div>
+						</li>
+						<!-- 耳机连线 -->
+						<li id="side_headset">
+							<a href="#">
+								<i class="ico_headset "></i>
+							</a>
+							<div class="mp_tooltip headset">
+								<a href="#">在线客服</a>
+								<i class="icon_arrow_right_white"></i>
+							</div>
+						</li>
+					</div>
+					<div class="lastthree">
+						<!-- 二维码 -->
+						<li id="side_ewm">
+							<a href="#"><i class="ico_qrcode"></i></a>
+							<!-- 隐藏的二维码图 -->
+							<div class="dislay_ewm">
+								<div class="leftewm">
+									<img src="img/QR_wx.jpg" >
+									<p>关注微信公众号</p>
+								</div>
+								<div class="rightewm">	
+									<img src="img/QR_app.jpg" >
+									<p>下载花礼APP</p>
+								</div>
+								<i class="icon_arrow_right_white"></i>
+							</div>
+						</li>
+						<!-- 便签 -->
+						<li id="side_note">
+							<a href="#"><i class="ico_surveys"></i></a>
+							<div class="mp_tooltip note">
+								<a href="#">功能反馈</a>
+								<i class="icon_arrow_right_white"></i>
+							</div>
+						</li>
+						<!-- 回到顶部 -->
+						<li id="gohome">
+							<a ><i class="ico_gotop"></i></a>
+						</li>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 咨询客服 -->
+		<!-- 咨询客服 -->
+		<div class="kefu">	
+			<img src="img/kefu.png" class="kefuimg">
+			<span>咨询客服</span>
+		</div>
+	</body>
+</html>
+<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/side.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+function $$(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}	
+</script>

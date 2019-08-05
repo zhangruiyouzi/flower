@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+			list-style: none;
+		}
+		body{
+			background: skyblue;
+		}
+		#uls{
+			position: relative;
+			width: 450px;
+			height: 450px;
+			margin: 100px auto;
+			box-shadow: 5px 5px 10px black;
+		}
+		#uls li{
+			position:absolute;
+			width: 150px;
+			height: 150px;
+			background-image: url(img/1100.jpg);
+			background-size: 500px 500px;
+			border-size:border-box;
+			border:1px solid skyblue;
+		}
+		#uls li:nth-child(1){
+			left: 0px;
+			top: 0px;
+			background-position: 0px 0px;
+		}
+		#uls li:nth-child(2){
+			left: 150px;
+			top: 0px;
+			background-position: -150px 0px;
+		}
+		#uls li:nth-child(3){
+			left: 300px;
+			top: 0px;
+			background-position: -300px 0px;
+		}
+		#uls li:nth-child(4){
+			left: 0px;
+			top: 150px;
+			background-position: 0px -150px;
+		}
+		#uls li:nth-child(5){
+			left: 150px;
+			top: 150px;
+			background-position: -150px -150px;
+		}
+		#uls li:nth-child(6){
+			left: 300px;
+			top: 150px;
+			background-position: -300px -150px;
+		}
+		#uls li:nth-child(7){
+			left: 0px;
+			top: 300px;
+			background-position: 0px -300px;
+		}
+		#uls li:nth-child(8){
+			left: 150px;
+			top: 300px;
+			background-position: -150px -300px;
+		}
+		#uls li:nth-child(9){
+			left: 300px;
+			top: 300px;
+			background-position: -300px -300px;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<ul id="uls">
+			<li index="0"></li>
+			<li index="1"></li>
+			<li index="2"></li>
+			<li index="3"></li>
+			<li index="4"></li>
+			<li index="5"></li>
+			<li index="6"></li>
+			<li index="7"></li>
+			<li index="8"></li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript">
+//让源li和目标li都为null
+var currLiDom = null;
+var targetLiDom = null;
+//源li的下标
+var currLiIndex = -1;
+
+window.onload = function(){
+	//一、让每一个li都能够拖拽
+	var liDoms = $("#uls").children;
+	for(var i=0;i<liDoms.length;i++){
+		liDoms[i].onmousedown = function(event){
+			var evt = event || window.event;
+			var offsetX = evt.offsetX;
+			var offsetY = evt.offsetY;	
+			this.style.zIndex = 1;
+			currLiDom = this;
+			currLiIndex = parseInt(this.getAttribute("index"));
+			// console.log("源li下标："+currLiIndex);
+
+
+			$("#uls").onmousemove = function(event){
+				var evt = event || window.event;
+				//计算数据
+				var left1 = evt.pageX-$("#uls").offsetLeft-offsetX;
+				var top1 = evt.pageY-$("#uls").offsetTop-offsetY;
+				//边界判断
+				if(left1<0){
+					left1=0;
+				}else if(left1>$("#uls").offsetWidth-currLiDom.offsetWidth){
+					left1=$("#uls").offsetWidth-currLiDom.offsetWidth;
+				}
+				if(top1<0){
+					top1=0;
+				}else if(top1>$("#uls").offsetHeight-currLiDom.offsetHeight){
+					top1=$("#uls").offsetHeight-currLiDom.offsetHeight;
+				}
+
+				currLiDom.style.left = left1+"px";
+				currLiDom.style.top = top1+"px";
+				targetLiDom = getTargetLi({"x":evt.pageX-$("#uls").offsetLeft,"y":evt.pageY-$("#uls").offsetTop});
+			}
+		}		
+	}
+
+	document.onmouseup = function(){
+		$("#uls").onmousemove = null;
+		currLiDom.style.zIndex = 0;
+		exchangeLi(currLiDom,targetLiDom);
+		//让源li和目标li都为null
+		currLiDom = null;
+		targetLiDom = null;
+		//源li的下标
+		currLiIndex = -1;
+	}
+}
+
+//计算目标li
+//参数：
+//鼠标的位置（基于ul的位置）
+function getTargetLi(mousePoint){
+	//行下标：
+	var rows = parseInt(mousePoint.y/150);
+	//列下标
+	var cols = parseInt(mousePoint.x/150);
+
+	//li下标
+	var index = rows*3+cols;
+
+	// console.log("目标li下标："+index);
+
+	return $("li")[index];
+
+}
+
+
+//二、交换(交换两个li的backgroundPosition)
+//参数：
+//源li
+//目标li
+
+function exchangeLi(sourceLi,targetLi){
+	// if(sourceLi==null){
+	// 	return;
+	// }
+	// if(targetLi==null){
+	// 	return;
+	// }
+
+	// if(sourceLi==targetLi){
+	// 	gohome();
+	// 	return;
+	// }
+
+	//交换
+	var temp = getStyle(sourceLi,"backgroundPosition"); 
+	sourceLi.style.backgroundPosition = getStyle(targetLi,"backgroundPosition");
+	targetLi.style.backgroundPosition = temp;
+
+	gohome();
+}
+
+// 归位
+function gohome(){
+	var cols = currLiIndex%3;
+	var rows = parseInt(currLiIndex/3);
+
+	$("li")[currLiIndex].style.left = cols*150 + "px";
+	$("li")[currLiIndex].style.top = rows*150 + "px";
+}
+
+
+
+
+function $(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+
+function getStyle(domObj,attr) {
+	if(domObj.currentStyle){
+		return domObj.currentStyle[attr];
+	}else{
+		return window.getComputedStyle(domObj)[attr];
+	}
+}
+</script>
